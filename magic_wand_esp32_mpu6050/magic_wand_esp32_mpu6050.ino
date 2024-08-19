@@ -48,6 +48,7 @@ bool should_clear_buffer = false;
 
 // The name of this function is important for Arduino compatibility.
 void setup() {
+  Serial.begin(9600);
   // Set up logging. Google style is to avoid globals or statics because of
   // lifetime uncertainty, but since this has a trivial destructor it's okay.
   static tflite::MicroErrorReporter micro_error_reporter;  // NOLINT
@@ -126,4 +127,5 @@ void loop() {
   should_clear_buffer = gesture_index < 3;
   // Produce an output
   HandleOutput(error_reporter, gesture_index);
+  Serial.println(gesture_index);
 }

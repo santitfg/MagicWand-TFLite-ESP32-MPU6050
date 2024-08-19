@@ -176,6 +176,7 @@ static bool UpdateData() {
   }
   last_sample_millis = millis();
   leerAcc();
+  printear(acc);
   float accX = acc.x;
   float accY = acc.y;
   float accZ = acc.z;
